@@ -35,8 +35,8 @@ def cleanPrint():
 #might use filedialog for selection
 #directory = filedialog.askdirectory(initialdir=os.getcwd(),title="Select folder to sort")
 
-input_dir = "C:\\Users\\Johnny\\Downloads"
-sorted_dir = "C:\\Users\\Johnny\\Downloads\\Test"
+input_dir = "F:\\热播"
+sorted_dir = "F:\\热播\\Organized"
 anime_dict = {}
 
 while not os.path.isabs(input_dir):
@@ -55,7 +55,7 @@ for root, dirs, files in os.walk(os.path.abspath(input_dir)):
 			if "HorribleSubs" in file:
 				clean_anime_name = re.sub("[\(\[].*?[\)\]]", "", anime_name)
 				clean_anime_name = clean_anime_name.split("-")[0].strip()
-			elif "JYFanSub" in file or "LKSUB" in file:
+			elif "JYFanSub" in file or "LKSUB" in file or "KTXP" in file:
 				clean_anime_name = re.findall('\[(.*?)\]',anime_name)[1]
 
 			if clean_anime_name not in anime_dict:
@@ -69,7 +69,7 @@ for root, dirs, files in os.walk(os.path.abspath(input_dir)):
 for key, value in anime_dict.items():
 	if not os.path.exists(os.path.join(sorted_dir,key)):
 		os.makedirs(os.path.join(sorted_dir,key))
-		
+
 	anime_list = value.split("#")
 	for episode in anime_list:
 		shutil.move(episode,os.path.join(sorted_dir,key))
