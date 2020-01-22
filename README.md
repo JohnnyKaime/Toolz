@@ -2,10 +2,15 @@
 for the love of anime and waifu's &lt;3
 
 Takes in folder directories then loops through sub folders to organise them
-1.  Counts the total amount of episode each sub group subbed
-2.  Saves and Read the sub group from a list
-3.  SubDict contains all the sub groups and the total amount of eps they subbed
-4.  AnimeDict contains all the anime found in the directories and sub directories
-5.    It is then saved into a Log.txt file in the format of AnimeTitle -> LinkedListOfEps
-6.  Shows missing episode if found
-7.    
+Uses the following fan sub groups:
+  KTXP
+  JYFanSub
+  HorribleSubs
+  
+ More to be added
+ 
+ 
+ Scans each file, extracts the anime name, uses the anime name as a key in the dictionary
+ The value of the dictionary is the full absolute path to the anime episode
+ Creates a folder in target with name of the anime
+ Moves all files in value of the dictionary into folder
