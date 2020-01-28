@@ -1,3 +1,7 @@
+# Tools
+A collection of small tools that I coded
+inspired by automate the boring stuff
+
 # AnimeFileOrganiser
 for the love of anime and waifu's &lt;3
 
