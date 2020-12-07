@@ -35,8 +35,8 @@ def cleanPrint():
 #might use filedialog for selection
 #directory = filedialog.askdirectory(initialdir=os.getcwd(),title="Select folder to sort")
 
-input_dir = "F:\\Ongoing"
-sorted_dir = "F:\\Ongoing"
+input_dir = "E:\\Test"
+sorted_dir = "E:\\Test"
 anime_dict = {}
 
 while not os.path.isabs(input_dir):
@@ -56,7 +56,11 @@ for root, dirs, files in os.walk(os.path.abspath(input_dir)):
 				clean_anime_name = re.sub("[\(\[].*?[\)\]]", "", anime_name)
 				clean_anime_name = clean_anime_name.split("-")[0].strip()
 			elif "jyfansub" in file.lower() or "lksub" in file.lower() or "ktxp" in file.lower():
-				clean_anime_name = re.findall('\[(.*?)\]',anime_name)[1]
+				clean_anime_name = re.findall("\[(.*?)\]",anime_name)[1]
+			elif "erai-raws" in file.lower():
+				clean_anime_name = re.findall('\](.*?)\[',anime_name);
+				lastOccurOfHyphen = clean_anime_name[0].rindex("-");
+				clean_anime_name = clean_anime_name[0][:lastOccurOfHyphen].strip()
 
 			if clean_anime_name not in anime_dict:
 				anime_dict[clean_anime_name] = os.path.join(root, file)
